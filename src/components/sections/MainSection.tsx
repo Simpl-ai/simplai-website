@@ -8,7 +8,7 @@ export default function MainSection() {
         {/* Background with Logo Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/backgrounds/background.avif"
+            src="/simplai-website/images/backgrounds/background.avif"
             alt="SIMPL AI Background"
             fill
             className="object-cover opacity-100"

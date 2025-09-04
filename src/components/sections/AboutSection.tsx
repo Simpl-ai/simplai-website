@@ -69,7 +69,7 @@ export default function AboutSection() {
             <Card
               icon={
                 <Image
-                  src="/images/team/greg.jpg"
+                  src="/simplai-website/images/team/greg.jpg"
                   alt="Greg, CEO"
                   fill
                   className="w-8 h-8 rounded-full"
@@ -107,7 +107,7 @@ export default function AboutSection() {
             <Card
               icon={
                 <Image
-                  src="/images/team/clancey.jpg"
+                  src="/simplai-website/images/team/clancey.jpg"
                   alt="Clancey, Technical"
                   fill
                   className="w-8 h-8 rounded-full"

@@ -134,7 +134,7 @@ export default function SolutionSection({ onOpenGetStarted }: SolutionSectionPro
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="absolute inset-0 z-0">
             <Image
-              src="/images/backgrounds/red_swirls.avif"
+              src="/simplai-website/images/backgrounds/red_swirls.avif"
               alt="SIMPL AI Footer Background"
               fill
               className="object-cover w-full h-full opacity-40"

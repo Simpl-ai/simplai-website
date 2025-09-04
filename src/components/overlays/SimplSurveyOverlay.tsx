@@ -73,7 +73,7 @@ export default function SimplSurveyOverlay({ open, onClose, className }: SimplSu
                 <p className="text-lg font-semibold text-indigo-500 mb-2">SIMPL Founder</p>
                 <p className="text-xl font-bold text-gray-900 mb-4">Greg Pearson</p>
                 <Image
-                  src="/images/team/greg_pearson.avif"
+                  src="/simplai-website/images/team/greg_pearson.avif"
                   alt="Greg Pearson"
                   width={100}
                   height={100}

@@ -22,7 +22,7 @@ const Footer = () => {
     <footer className="relative overflow-hidden bg-black text-white">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/backgrounds/footer.avif"
+          src="/simplai-website/images/backgrounds/footer.avif"
           alt="SIMPL AI Footer Background"
           fill
           className="object-cover w-full h-full opacity-40"
