@@ -78,6 +78,7 @@ export default function SimplSurveyOverlay({ open, onClose, className }: SimplSu
                   width={100}
                   height={100}
                   className="rounded-full mx-auto mb-2"
+                  unoptimized
                 />
               </div>
               <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-6">

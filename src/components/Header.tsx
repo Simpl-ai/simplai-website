@@ -32,11 +32,12 @@ const Header: React.FC<HeaderProps> = ({ onOpenSurvey, onOpenInvestment, onOpenG
           <div className="flex items-center">
             <Link href="/#home" className="flex items-center space-x-3">
               <Image
-                src="/images/branding/simplai_logo.svg"
+                src="/simplai-website/images/branding/simplai_logo.svg"
                 alt="SIMPL AI"
                 width={120}
                 height={80}
                 className="h-12 w-auto"
+                unoptimized
               />
             </Link>
           </div>

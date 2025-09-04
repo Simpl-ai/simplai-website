@@ -138,6 +138,7 @@ export default function SolutionSection({ onOpenGetStarted }: SolutionSectionPro
               alt="SIMPL AI Footer Background"
               fill
               className="object-cover w-full h-full opacity-40"
+              unoptimized
             />
           </div>
           <div className="relative z-10">

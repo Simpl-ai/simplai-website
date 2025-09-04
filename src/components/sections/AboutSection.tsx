@@ -73,6 +73,7 @@ export default function AboutSection() {
                   alt="Greg, CEO"
                   fill
                   className="w-8 h-8 rounded-full"
+                  unoptimized
                 />
               }
               title="Greg, CEO"
@@ -110,6 +111,7 @@ export default function AboutSection() {
                   alt="Clancey, Technical"
                   fill
                   className="w-8 h-8 rounded-full"
+                  unoptimized
                 />
               }
               title="Clancey, Technical"

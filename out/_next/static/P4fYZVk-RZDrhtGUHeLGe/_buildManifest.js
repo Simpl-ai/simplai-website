@@ -1,10 +1,15 @@
 self.__BUILD_MANIFEST = {
   "/_error": [
-    "./static/chunks/22f805491aa2a4cf.js"
+    "./static/chunks/19586a507bd97f10.js"
   ],
   "__rewrites": {
     "afterFiles": [],
-    "beforeFiles": [],
+    "beforeFiles": [
+      {
+        "source": "/simplai-website//_next/:path+",
+        "destination": "/simplai-website/_next/:path+"
+      }
+    ],
     "fallback": []
   },
   "sortedPages": [

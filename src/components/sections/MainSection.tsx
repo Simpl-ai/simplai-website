@@ -13,6 +13,7 @@ export default function MainSection() {
             fill
             className="object-cover opacity-100"
             priority
+            unoptimized
           />
         </div>
 
@@ -52,11 +53,12 @@ export default function MainSection() {
               {/* Right Column - Side Image */}
               <div className="relative h-80 lg:h-96">
                 <Image
-                  src="/images/branding/simplai_logo.svg"
+                  src="/simplai-website/images/branding/simplai_logo.svg"
                   alt="SIMPL AI Logo"
                   width={450}
                   height={300}
                   className="object-cover rounded-lg shadow-lg"
+                  unoptimized
                 />
               </div>
             </div>
