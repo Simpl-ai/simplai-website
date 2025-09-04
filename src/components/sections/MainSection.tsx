@@ -42,7 +42,7 @@ export default function MainSection() {
 
                 <div className="pt-4">
                   <Link
-                    href="/#solutions"
+                    href="#solutions"
                     className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-md text-base font-semibold transition-colors duration-200 inline-block"
                   >
                     Discover More

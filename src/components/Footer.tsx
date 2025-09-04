@@ -49,31 +49,6 @@ const Footer = () => {
           </div>
 
           {/* Navigation Links */}
-          <div>
-            <div className="space-y-6">
-              <div className="text-gray-400 leading-relaxed">
-                <Link href="/#solutions" className="hover:text-white transition-colors duration-200 block">
-                  Explore
-                </Link>
-                <Link href="/#solutions" className="hover:text-white transition-colors duration-200 block">
-                  Discover
-                </Link>
-                <Link href="/#solutions" className="hover:text-white transition-colors duration-200 block">
-                  Engage
-                </Link>
-                <Link href="/#solutions" className="hover:text-white transition-colors duration-200 block">
-                  Connect
-                </Link>
-              </div>
-
-              <Link
-                href="mailto:contact@simplai.ca?subject=Let's%20Start%20Simpl"
-                className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-md transition-colors duration-200 font-semibold inline-block text-center"
-              >
-                <FaEnvelope className="inline mr-2" />Start Now
-              </Link>
-            </div>
-          </div>
 
           {/* Contact Form */}
           <div>

@@ -15,11 +15,11 @@ const Header: React.FC<HeaderProps> = ({ onOpenSurvey, onOpenInvestment, onOpenG
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navigation: { name: string; href?: string }[] = [
-    { name: 'Home', href: '/#home' },
-    { name: 'Features', href: '/#features' },
-    { name: 'Solutions', href: '/#solutions' },
-    { name: 'Services', href: '/#services' },
-    { name: 'About', href: '/#vision' },
+    { name: 'Home', href: '#home' },
+    { name: 'Features', href: '#features' },
+    { name: 'Solutions', href: '#solutions' },
+    { name: 'Services', href: '#services' },
+    { name: 'About', href: '#vision' },
     { name: 'SIMPL Survey' }, // no href
     { name: 'Investment' }, // no href
   ];
@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenSurvey, onOpenInvestment, onOpenG
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/#home" className="flex items-center space-x-3">
+            <Link href="#home" className="flex items-center space-x-3">
               <Image
                 src="/simplai-website/images/branding/simplai_logo.svg"
                 alt="SIMPL AI"
