@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { HiX } from 'react-icons/hi';
-import { FaEnvelope, FaPhone, FaMapLocation, FaXTwitter } from 'react-icons/fa6';
+import { FaEnvelope, FaPhone, FaMapLocation } from 'react-icons/fa6';
 
 type GetStartedOverlayProps = {
     open: boolean;
@@ -38,7 +38,7 @@ export default function GetStartedOverlay({ open, onClose, className }: GetStart
                             Get Started with SIMPL AI
                         </h1>
                         <p className="text-xl text-gray-700 mb-12 max-w-3xl mx-auto">
-                            Ready to revolutionize your data reporting? Let's make it SIMPL for your organization.
+                            Ready to revolutionize your data reporting? Let&#39;s make it SIMPL for your organization.
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">

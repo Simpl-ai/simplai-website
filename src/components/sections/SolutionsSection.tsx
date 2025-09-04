@@ -2,6 +2,8 @@ type SolutionSectionProps = {
   onOpenGetStarted: () => void;
 };
 
+import Image from 'next/image';
+
 export default function SolutionSection({ onOpenGetStarted }: SolutionSectionProps) {
   return (
     <>
@@ -131,9 +133,10 @@ export default function SolutionSection({ onOpenGetStarted }: SolutionSectionPro
       <section className="relative overflow-hidden bg-gradient-to-r from-red-500 to-red-600 text-white py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="absolute inset-0 z-0">
-            <img
+            <Image
               src="/images/backgrounds/red_swirls.avif"
               alt="SIMPL AI Footer Background"
+              fill
               className="object-cover w-full h-full opacity-40"
             />
           </div>
@@ -142,7 +145,7 @@ export default function SolutionSection({ onOpenGetStarted }: SolutionSectionPro
               Ready to Transform Your Data Reporting?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Let's discuss how SIMPL AI can revolutionize your business systems.
+              Let&#39;s discuss how SIMPL AI can revolutionize your business systems.
             </p>
             {/* Get Started Button */}
 

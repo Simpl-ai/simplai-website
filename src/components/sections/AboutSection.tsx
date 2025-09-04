@@ -12,7 +12,7 @@ export default function AboutSection() {
               About SIMPL AI
             </h1>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              We're revolutionizing how organizations interact with their business data through
+              We&#39;re revolutionizing how organizations interact with their business data through
               private AI technology that never compromises your security.
             </p>
           </div>
@@ -22,7 +22,7 @@ export default function AboutSection() {
             <p className="text-lg text-gray-700 mb-6">
               To make business intelligence and reporting as simple as having a conversation.
               We believe that every team member, regardless of technical expertise, should be
-              able to access and understand their organization's data instantly.
+              able to access and understand their organization&#39;s data instantly.
             </p>
             <p className="text-lg text-gray-700">
               Our private AI technology ensures that your sensitive business data remains secure

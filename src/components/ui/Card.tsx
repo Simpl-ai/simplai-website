@@ -1,6 +1,5 @@
-import Link from 'next/link';
 import React from 'react';
-import Image from 'next/image';
+import Link from 'next/link';
 
 type CardProps = {
     icon: React.ReactNode;
@@ -10,7 +9,7 @@ type CardProps = {
     accentColor: string;
     titleColor: string;
     subTitleColor: string;
-    link: { href: string; label: string; color: string };
+    link?: { href: string; label: string; color: string };
 };
 
 const Card: React.FC<CardProps> = ({ icon, title, subtitle, items, accentColor, titleColor, subTitleColor, link }) => (
@@ -25,9 +24,11 @@ const Card: React.FC<CardProps> = ({ icon, title, subtitle, items, accentColor, 
         <ul className="space-y-2 text-gray-300 mb-6">
             {items.map((item, i) => <li key={i}>{item}</li>)}
         </ul>
-        {/* <Link href={link.href} className={`${link.color} font-semibold`}>
-            {link.label}
-        </Link> */}
+        {link && (
+            <Link href={link.href} className={`${link.color} font-semibold`}>
+                {link.label}
+            </Link>
+        )}
     </div>
 );
 

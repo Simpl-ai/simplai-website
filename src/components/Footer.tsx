@@ -1,9 +1,8 @@
 'use client';
-
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
-import { FaEnvelope, FaPhone, FaMapLocation , FaXTwitter  } from 'react-icons/fa6';
+import { FaEnvelope, FaPhone, FaMapLocation, FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -21,13 +20,14 @@ const Footer = () => {
 
   return (
     <footer className="relative overflow-hidden bg-black text-white">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/backgrounds/footer.avif"
-            alt="SIMPL AI Footer Background"
-            className="object-cover w-full h-full opacity-40"
-          />
-        </div>
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/backgrounds/footer.avif"
+          alt="SIMPL AI Footer Background"
+          fill
+          className="object-cover w-full h-full opacity-40"
+        />
+      </div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Contact Info */}

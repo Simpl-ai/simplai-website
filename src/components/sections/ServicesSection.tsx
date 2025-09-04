@@ -1,6 +1,5 @@
-import Link from 'next/link';
 import Card from '../ui/Card';
-import { FaCogs, FaChalkboardTeacher, FaUserTie } from 'react-icons/fa'; // FontAwesome
+import { FaCogs, FaChalkboardTeacher, FaUserTie } from 'react-icons/fa';
 
 export default function ServicesSection() {
   return (

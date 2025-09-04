@@ -3,7 +3,6 @@ import { AiOutlineCloudServer } from "react-icons/ai";
 import { RiTeamLine } from "react-icons/ri";
 
 import Card from "../ui/Card"
-import Image from "next/image"
 
 export default function FeaturesSection() {
     return (
