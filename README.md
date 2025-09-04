@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SIMPL AI Website
 
-## Getting Started
+Welcome to the official SIMPL AI website. This site showcases our private AI technology for business intelligence and ERP reporting, built with Next.js, React, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## About SIMPL AI
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+SIMPL AI enables organizations to securely and efficiently report on data in their business systems using artificial intelligence—without ever touching your data. Our solution is fast, secure, and unlimited, with a focus on privacy and ease of use.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Key Features
+- Natural language data querying
+- Private AI technology (no data extraction)
+- Unlimited, real-time reporting
+- Compliance and regulatory support
+- Seamless integration with existing business systems
+- Modern, responsive UI/UX
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Website Structure
+- Home, Features, Solutions, Services, About, and Contact sections
+- Interactive overlays for survey, investment, and getting started
+- Responsive navigation and footer
+- Optimized images and icons
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment
 
-## Learn More
+This site is statically exported and ready for deployment to GitHub Pages or any static hosting provider.
 
-To learn more about Next.js, take a look at the following resources:
+### Deploy to GitHub Pages
+1. Ensure `next.config.ts` contains:
+   ```ts
+   output: "export"
+   ```
+2. Build and export the site:
+   ```bash
+   npm run build
+   npm run export
+   ```
+3. Deploy the contents of the `out/` folder to your GitHub Pages branch (e.g., `gh-pages`).
+4. If your site is served from a subpath, set `basePath` and `assetPrefix` in `next.config.ts`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This website and its source code are copyright © 2025 SIMPL AI. All rights reserved.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For development instructions, contributing guidelines, and template information, see [CONTRIBUTING.md](CONTRIBUTING.md).

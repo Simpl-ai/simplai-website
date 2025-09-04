@@ -1,14 +1,17 @@
 @import "tailwindcss";
+html {
+  scroll-behavior: smooth;
+}
 
 :root {
-  --background: #ffffff;
+  --background: #fafafa;
   --foreground: #171717;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter), var(--font-poppins);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -21,6 +24,9 @@
 
 body {
   background: var(--background);
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(220, 220, 220, 0.3) 1px, transparent 0);
+  background-size: 20px 20px;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), var(--font-poppins), system-ui, -apple-system, sans-serif;
 }
