@@ -1,0 +1,138 @@
+---
+// Footer.astro — Black footer with link columns
+---
+
+<footer class="footer" id="footer">
+  <div class="footer__container">
+    <div class="footer__grid">
+      <!-- Company -->
+      <div class="footer__column">
+        <h4 class="footer__heading">Company</h4>
+        <ul class="footer__list">
+          <li>
+            <button
+              type="button"
+              class="footer__link footer__link--btn"
+              data-modal="contact">Contact Us</button
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div class="footer__column">
+        <h4 class="footer__heading">Legal</h4>
+        <ul class="footer__list">
+          <li>
+            <a
+              href={`${import.meta.env.BASE_URL}privacy-policy`}
+              class="footer__link">Privacy Policy</a
+            >
+          </li>
+          <li>
+            <a
+              href={`${import.meta.env.BASE_URL}terms-of-service`}
+              class="footer__link">Terms of Service</a
+            >
+          </li>
+          <li>
+            <a
+              href={`${import.meta.env.BASE_URL}cookie-statement`}
+              class="footer__link">Cookie Policy</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copyright">
+        © 2026 Simpl AI. All rights reserved. Built with ♥ in Canada 🍁
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-brand-dark);
+    color: var(--color-bg-white);
+    padding: 4rem 0 2rem;
+  }
+
+  .footer__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .footer__heading {
+    font-family: var(--font-display);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--color-bg-white);
+    margin: 0 0 1rem;
+  }
+
+  .footer__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .footer__link {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer__link:hover {
+    color: var(--color-brand-blue);
+  }
+
+  .footer__link--btn {
+    background: none;
+    border: 1.5px solid var(--color-brand-blue);
+    color: var(--color-brand-blue) !important;
+    padding: 0.2rem 0.75rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition:
+      background 0.15s,
+      color 0.15s;
+  }
+
+  .footer__link--btn:hover {
+    background: var(--color-brand-blue);
+    color: var(--color-bg-white) !important;
+  }
+
+  .footer__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    text-align: center;
+  }
+
+  .footer__copyright {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+  }
+</style>

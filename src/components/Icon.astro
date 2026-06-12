@@ -1,0 +1,45 @@
+---
+import { Icon as AstroIcon } from "astro-icon/components";
+
+interface Props {
+  library:
+    | "lucide"
+    | "heroicons"
+    | "heroicons-solid"
+    | "heroicons-mini"
+    | "phosphor";
+  name: string;
+  size?: number | string;
+  class?: string;
+  strokeWidth?: number;
+}
+
+const { library, name, size = 24, class: className, strokeWidth } = Astro.props;
+
+const prefixMap: Record<string, string> = {
+  lucide: "lucide",
+  heroicons: "heroicons-outline",
+  "heroicons-solid": "heroicons-solid",
+  "heroicons-mini": "heroicons-mini",
+  phosphor: "ph",
+};
+
+const prefix = prefixMap[library] ?? "lucide";
+const iconName = `${prefix}:${name}`;
+
+const style: Record<string, string> = {};
+if (typeof size === "number") {
+  style.width = `${size}px`;
+  style.height = `${size}px`;
+} else if (typeof size === "string") {
+  style.width = size;
+  style.height = size;
+}
+---
+
+<AstroIcon
+  name={iconName}
+  class={className}
+  style={style}
+  {...strokeWidth ? { "stroke-width": strokeWidth } : {}}
+/>

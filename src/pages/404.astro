@@ -1,0 +1,73 @@
+---
+import Layout from "../layouts/layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../sections/footer.astro";
+---
+
+<Layout title="Page Not Found — Simpl AI">
+  <Navbar />
+  <main class="not-found" id="main-content">
+    <div class="not-found__inner">
+      <h1 class="not-found__title">404</h1>
+      <p class="not-found__body">
+        We couldn't find that page. It might have moved or no longer exists.
+      </p>
+      <a href={import.meta.env.BASE_URL} class="not-found__cta">Back to home</a>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .not-found {
+    min-height: calc(100vh - 72px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+
+  .not-found__inner {
+    max-width: 480px;
+  }
+
+  .not-found__title {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 10vw, 6rem);
+    font-weight: 900;
+    color: var(--color-brand-dark);
+    margin: 0 0 1rem;
+    line-height: 1;
+  }
+
+  .not-found__body {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin: 0 0 2rem;
+    line-height: 1.6;
+  }
+
+  .not-found__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+    background: var(--color-brand-dark);
+    color: var(--color-bg-white);
+    transition:
+      transform 0.15s,
+      box-shadow 0.15s,
+      background 0.15s;
+  }
+
+  .not-found__cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    background: var(--color-brand-charcoal);
+  }
+</style>

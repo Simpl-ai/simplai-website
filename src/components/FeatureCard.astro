@@ -1,0 +1,201 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  titleBg?: string;
+  titleColor?: string;
+  titleAlign?: "left" | "center" | "right";
+  bodyAlign?: "left" | "center" | "right";
+  borderColor?: string;
+  borderHoverColor?: string;
+  shadowColor?: string;
+  bodyBg?: string;
+  bodyBgImage?: string;
+  bodyBgOpacity?: number;
+  footer?: boolean;
+  ctaText?: string;
+  ctaHref?: string;
+  ctaAction?: string;
+}
+
+const {
+  title,
+  subtitle,
+  titleBg = "transparent",
+  titleColor = "var(--color-brand-dark)",
+  titleAlign = "left",
+  bodyAlign = "left",
+  borderColor = "var(--color-border-default)",
+  borderHoverColor = "var(--color-brand-green-bright)",
+  shadowColor = "var(--color-shadow-brand)",
+  bodyBg = "var(--color-bg-card)",
+  bodyBgImage,
+  bodyBgOpacity = 0.12,
+  footer = false,
+  ctaText,
+  ctaHref,
+  ctaAction,
+} = Astro.props;
+
+const cardStyle: Record<string, string> = {
+  borderColor,
+  "--card-hover-border": borderHoverColor,
+  "--card-hover-shadow": shadowColor,
+};
+
+const headerStyle: Record<string, string> = {
+  background: titleBg,
+  textAlign: titleAlign,
+};
+
+const titleStyle: Record<string, string> = {
+  color: titleColor,
+};
+
+const bodyStyle: Record<string, string> = {
+  background: bodyBgImage ? "transparent" : bodyBg,
+  textAlign: bodyAlign,
+};
+
+const bgImageStyle = bodyBgImage
+  ? {
+      backgroundImage: `url(${bodyBgImage})`,
+      opacity: bodyBgOpacity,
+    }
+  : null;
+---
+
+<article class="feature-card" style={cardStyle}>
+  <div class="feature-card__header" style={headerStyle}>
+    <h3 class="feature-card__title" style={titleStyle}>{title}</h3>
+    {subtitle && <p class="feature-card__subtitle">{subtitle}</p>}
+  </div>
+
+  <div class="feature-card__body" style={bodyStyle}>
+    {
+      bodyBgImage && (
+        <div class="feature-card__bg" style={bgImageStyle} aria-hidden="true" />
+      )
+    }
+    <div class="feature-card__content">
+      <slot name="icon" />
+      <slot />
+    </div>
+  </div>
+
+  {
+    footer && (
+      <div class="feature-card__footer">
+        <slot name="footer">
+          {ctaText && (
+            <a
+              class="feature-card__cta"
+              href={ctaHref}
+              {...(ctaAction
+                ? {
+                    "data-modal": ctaAction,
+                  }
+                : {})}
+            >
+              {ctaText}
+            </a>
+          )}
+        </slot>
+      </div>
+    )
+  }
+</article>
+
+<style>
+  .feature-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-bg-white);
+    border: 1px solid;
+    border-radius: 1rem;
+    overflow: hidden;
+    height: 100%;
+    text-align: left;
+    transition:
+      box-shadow 0.2s,
+      transform 0.2s,
+      border-color 0.2s;
+  }
+
+  .feature-card:hover {
+    box-shadow: 0 16px 48px var(--card-hover-shadow);
+    border-color: var(--card-hover-border);
+    transform: translateY(-4px);
+  }
+
+  .feature-card__header {
+    padding: 1.25rem 1.75rem;
+  }
+
+  .feature-card__title {
+    font-family: var(--font-display);
+    font-size: 1.1875rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .feature-card__subtitle {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin: 0.5rem 0 0;
+    line-height: 1.4;
+  }
+
+  .feature-card__body {
+    position: relative;
+    flex: 1 1 auto;
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .feature-card__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .feature-card__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .feature-card__footer {
+    padding: 1rem 1.75rem;
+    margin-top: auto;
+  }
+
+  .feature-card__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+    background: var(--color-brand-dark);
+    color: var(--color-bg-white);
+    transition:
+      transform 0.15s,
+      box-shadow 0.15s,
+      background 0.15s;
+    cursor: pointer;
+  }
+
+  .feature-card__cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    background: var(--color-brand-charcoal);
+  }
+</style>

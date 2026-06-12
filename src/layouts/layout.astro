@@ -1,0 +1,112 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "Simpl AI",
+  description = "Building the best safety solution with you. WCB-compliant safety management, compliance, and excellence. Anywhere you work.",
+  ogImage = `${import.meta.env.BASE_URL}simplai_logo_black.png`,
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, "https://simplai.ca").href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#00aeef" />
+    <title>{title}</title>
+
+    <!-- Canonical & indexing -->
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Favicons -->
+    <link
+      rel="icon"
+      href={`${import.meta.env.BASE_URL}favicon.ico`}
+      sizes="any"
+    />
+    <link
+      rel="icon"
+      href={`${import.meta.env.BASE_URL}favicon-32x32.png`}
+      type="image/png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href={`${import.meta.env.BASE_URL}favicon-16x16.png`}
+      type="image/png"
+      sizes="16x16"
+    />
+    <link
+      rel="apple-touch-icon"
+      href={`${import.meta.env.BASE_URL}apple-touch-icon.png`}
+      sizes="180x180"
+    />
+    <link rel="manifest" href={`${import.meta.env.BASE_URL}site.webmanifest`} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta
+      property="og:image"
+      content={new URL(ogImage, "https://simplai.ca").href}
+    />
+    <meta property="og:site_name" content="Simpl AI" />
+    <meta property="og:locale" content="en_CA" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta
+      name="twitter:image"
+      content={new URL(ogImage, "https://simplai.ca").href}
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-white text-gray-900 antialiased">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-brand-dark);
+    color: var(--color-bg-white);
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    z-index: 1000;
+    border-radius: 0 0 0.5rem 0;
+    text-decoration: none;
+    transition: top 0.2s;
+  }
+
+  .skip-link:focus {
+    top: 0;
+  }
+</style>

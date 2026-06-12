@@ -1,0 +1,381 @@
+---
+// Hero.astro — Full hero section matching the mockup
+import Icon from "../components/Icon.astro";
+---
+
+<section class="hero" id="hero">
+  <!-- Diagonal blue background -->
+  <div class="hero__bg" aria-hidden="true"></div>
+
+  <div class="hero__container">
+    <div class="hero__content">
+      <!-- Left column: text -->
+      <div class="hero__text">
+        <h1 class="hero__headline">
+          We are building the best<br />
+          safety solution with you.
+          <span class="hero__maple" aria-label="Canadian">🍁</span>
+        </h1>
+
+        <p class="hero__subtext">
+          <strong>We are against complicated solutions</strong> that make your teams
+          struggle. People don't do complicated.
+        </p>
+
+        <p class="hero__subtext">
+          We are developing a WCB-compliant solution with an integrated mobile
+          app to make safety management, compliance, and excellence easy.
+          Anywhere you work.
+        </p>
+      </div>
+
+      <!-- Right column: animated visual -->
+      <div class="hero__visual" aria-hidden="true">
+        <div class="hero__visual-inner">
+          <div class="hero__ring hero__ring--3"></div>
+          <div class="hero__ring hero__ring--2"></div>
+          <div class="hero__ring hero__ring--1"></div>
+          <div class="hero_logo">
+            <!-- centered, like the shield svg was -->
+            <img
+              src={`${import.meta.env.BASE_URL}animated_logo_half.svg`}
+              alt="SIMPL AI CircleLogo"
+              style="width: 50%; height: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
+            />
+          </div>
+          <div class="hero__dot hero__dot--a"></div>
+          <div class="hero__dot hero__dot--b"></div>
+          <div class="hero__dot hero__dot--c"></div>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="hero__btn hero__btn--primary"
+        data-modal="demo"
+      >
+        Ready to make Safety Management Simpl?
+        <Icon library="lucide" name="arrow-right" size={16} />
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Hero shell ── */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 3rem;
+  }
+
+  /* Diagonal blue bg: fills top portion then cuts diagonally */
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    background: var(--color-alternate-dark);
+    clip-path: polygon(0 0, 100% 23%, 100% 100%, 0 100%);
+    z-index: 0;
+  }
+
+  .hero__bg {
+    /* default (desktop) */
+    --slope: 23%;
+    clip-path: polygon(0 0, 100% var(--slope), 100% 100%, 0 100%);
+  }
+
+  @media (max-width: 899px) {
+    .hero__bg {
+      --slope: 10%; /* steeper = less white gap in the text area */
+    }
+  }
+
+  .hero__container {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 2rem;
+  }
+
+  /* ── Two-column layout ── */
+  .hero__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .hero__content {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+  }
+
+  /* ── Left: text ── */
+  .hero__headline {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: white;
+    margin: 0 0 1.25rem;
+  }
+
+  .hero__maple {
+    font-size: 1.25rem;
+    margin-left: 0.25rem;
+  }
+
+  .hero__subtext {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.65;
+    margin: 0 0 0.875rem;
+  }
+
+  /* "Simply Safe" tagline */
+  .hero__tagline-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 0.625rem;
+    margin: 2rem 0 2.25rem;
+  }
+
+  .hero__tagline-simply {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.03em;
+  }
+
+  .hero__tagline-safe {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    color: white;
+    letter-spacing: -0.03em;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1;
+  }
+
+  .hero__tagline-accent {
+    display: block;
+    margin-top: 0.25rem;
+  }
+
+  .hero__tagline-icon {
+    align-self: center;
+    margin-left: 0.25rem;
+  }
+
+  /* CTA row */
+  .hero__cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.875rem;
+    margin-top: 0.5rem;
+  }
+
+  .hero__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+      transform 0.15s,
+      box-shadow 0.15s;
+  }
+
+  .hero__btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  }
+
+  .hero__btn--primary {
+    background: var(--color-brand-dark);
+    color: var(--color-bg-white);
+  }
+
+  .hero__btn--secondary {
+    background: var(--color-brand-charcoal);
+    color: var(--color-bg-white);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  /* ── Right: placeholder image ── */
+  .hero__mockup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1rem;
+  }
+
+  .hero__image-wrap {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  }
+
+  .hero__placeholder-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* ── Right: animated visual ── */
+  .hero__visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+  }
+
+  .hero__visual-inner {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Concentric pulsing rings */
+  .hero__ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    animation: ring-pulse 3.6s ease-out infinite;
+  }
+
+  .hero__ring--1 {
+    width: 120px;
+    height: 120px;
+    animation-delay: 0s;
+  }
+
+  .hero__ring--2 {
+    width: 180px;
+    height: 180px;
+    animation-delay: 0.7s;
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+
+  .hero__ring--3 {
+    width: 250px;
+    height: 250px;
+    animation-delay: 1.4s;
+    border-color: rgba(255, 255, 255, 0.09);
+  }
+
+  @keyframes ring-pulse {
+    0% {
+      transform: scale(0.88);
+      opacity: 0.9;
+    }
+    60% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: scale(1.08);
+      opacity: 0;
+    }
+  }
+
+  /* Shield */
+  .hero__shield-wrap {
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.22));
+    animation: shield-float 4s ease-in-out infinite;
+  }
+
+  .hero__shield-svg {
+    width: 88px;
+    height: 103px;
+  }
+
+  @keyframes shield-float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Orbiting dots */
+  .hero__dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: white;
+    z-index: 3;
+  }
+
+  .hero__dot--a {
+    top: 28px;
+    right: 52px;
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    animation: dot-orbit-a 6s linear infinite;
+  }
+
+  .hero__dot--b {
+    bottom: 44px;
+    left: 44px;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.65);
+    animation: dot-orbit-b 8s linear infinite;
+  }
+
+  .hero__dot--c {
+    top: 50%;
+    right: 18px;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    animation: dot-orbit-c 10s linear infinite;
+  }
+
+  @keyframes dot-orbit-a {
+    0% {
+      transform: rotate(0deg) translateX(90px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(90px) rotate(-360deg);
+    }
+  }
+
+  @keyframes dot-orbit-b {
+    0% {
+      transform: rotate(120deg) translateX(75px) rotate(-120deg);
+    }
+    100% {
+      transform: rotate(480deg) translateX(75px) rotate(-480deg);
+    }
+  }
+
+  @keyframes dot-orbit-c {
+    0% {
+      transform: rotate(240deg) translateX(60px) rotate(-240deg);
+    }
+    100% {
+      transform: rotate(600deg) translateX(60px) rotate(-600deg);
+    }
+  }
+</style>

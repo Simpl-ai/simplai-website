@@ -1,0 +1,238 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  subtitleColor?: string;
+  bg?: string;
+  bgImage?: string;
+  bgImageOpacity?: number;
+  layout?: "grid" | "split-left" | "split-right";
+  gridCols?: 1 | 2 | 3;
+  ctaText?: string;
+  ctaAction?: string;
+  class?: string;
+}
+
+const {
+  id,
+  title,
+  subtitle,
+  bg = "transparent",
+  bgImage,
+  bgImageOpacity = 0.06,
+  layout = "grid",
+  gridCols = 3,
+  ctaText,
+  ctaAction,
+  class: className,
+  subtitleColor = "var(--color-text-muted)",
+} = Astro.props;
+
+const sectionStyle: Record<string, string> = { background: bg };
+const bgImageStyle = bgImage
+  ? {
+      backgroundImage: `url(${bgImage})`,
+      opacity: bgImageOpacity,
+    }
+  : null;
+
+const gridClass =
+  gridCols === 1
+    ? "section__grid--1"
+    : gridCols === 2
+      ? "section__grid--2"
+      : "section__grid--3";
+---
+
+<section class={`section ${className ?? ""}`} id={id} style={sectionStyle}>
+  {
+    bgImage && (
+      <div class="section__bg" style={bgImageStyle} aria-hidden="true" />
+    )
+  }
+
+  <div class="section__container">
+    {
+      (title || subtitle) && (
+        <header class="section__header">
+          {title && <h2 class="section__title">{title}</h2>}
+          {subtitle && (
+            <p class="section__subtitle" style={`color: ${subtitleColor}`}>
+              {subtitle}
+            </p>
+          )}
+        </header>
+      )
+    }
+
+    {
+      layout === "grid" && (
+        <div class={`section__grid ${gridClass}`}>
+          <slot />
+        </div>
+      )
+    }
+
+    {
+      (layout === "split-left" || layout === "split-right") && (
+        <div
+          class={`section__split ${
+            layout === "split-right" ? "section__split--reverse" : ""
+          }`}
+        >
+          <div class="section__split-text">
+            <slot name="content" />
+          </div>
+          <div class="section__split-visual">
+            <slot name="visual" />
+          </div>
+        </div>
+      )
+    }
+
+    {
+      ctaText && (
+        <div class="section__cta-wrap">
+          <button
+            type="button"
+            class="section__cta"
+            data-modal={ctaAction ?? "demo"}
+          >
+            {ctaText}
+            <Icon library="lucide" name="arrow-right" size={16} />
+          </button>
+        </div>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .section {
+    position: relative;
+    padding: 5rem 0;
+    overflow: hidden;
+  }
+
+  .section__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .section__container {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .section__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-brand-dark);
+    margin: 0 0 0.75rem;
+  }
+
+  .section__subtitle {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .section__grid {
+    display: grid;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .section__grid--1 {
+    grid-template-columns: 1fr;
+  }
+
+  .section__grid--2 {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .section__grid--2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .section__grid--3 {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .section__grid--3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .section__split {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .section__split {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .section__split--reverse {
+    direction: rtl;
+  }
+
+  .section__split--reverse > * {
+    direction: ltr;
+  }
+
+  .section__cta-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+
+  .section__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    background: var(--color-brand-dark);
+    color: var(--color-bg-white);
+    cursor: pointer;
+    transition:
+      transform 0.15s,
+      box-shadow 0.15s,
+      background 0.15s;
+  }
+
+  .section__cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    background: var(--color-brand-charcoal);
+  }
+</style>

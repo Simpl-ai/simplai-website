@@ -1,0 +1,112 @@
+---
+import Section from "../components/Section.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import Icon from "../components/Icon.astro";
+import { icons } from "../config/icons";
+
+interface Goal {
+  icon: keyof typeof icons;
+  title: string;
+  description: string;
+}
+
+const goals: Goal[] = [
+  {
+    icon: "alert",
+    title: "Site Arrival & Alerting",
+    description:
+      "Are daily hazard assessments (FLHAs) difficult to manage, or is it hard to alert workers of dangers before their shift begins?",
+  },
+  {
+    icon: "cloudUpload",
+    title: "Incident Management",
+    description:
+      "Are your workers able to report incidents quickly, or can you track them effectively?",
+  },
+  {
+    icon: "clipboard",
+    title: "Corrective Actions",
+    description:
+      "How are you tracking corrective actions and are they being completed on time?",
+  },
+  {
+    icon: "radio",
+    title: "Emergency Broadcasting",
+    description:
+      "In an emergency, how quickly can you alert everyone on site and do you have a reliable system to send urgent messages?",
+  },
+  {
+    icon: "shieldCheck",
+    title: "COR Compliance",
+    description:
+      "Is staying in compliance with COR standards taking too much time even though you are spending hours on paperwork?",
+  },
+  {
+    icon: "messageCircle",
+    title: "Claims",
+    description:
+      "Do you struggle to get claims approved and then spend hours finding the correct information for valid claims?",
+  },
+];
+---
+
+<Section
+  id="goals"
+  title="What would you like Simply Safe to solve?"
+  subtitle="We want to hear what you need to make your safety program work better for you."
+  subtitleColor="var(--color-alternate-dark)"
+  bg="var(--color-bg-card)"
+  gridCols={3}
+  ctaText="Tell us about the challenges you are having with safety management"
+  ctaAction="demo"
+>
+  {
+    goals.map((g) => {
+      const iconRef = icons[g.icon];
+      return (
+        <FeatureCard
+          title={g.title}
+          titleAlign="center"
+          bodyAlign="center"
+          borderHoverColor="var(--color-brand-green-bright)"
+          shadowColor="var(--color-shadow-brand)"
+          bodyBg="var(--color-bg-white)"
+        >
+          <div slot="icon" class="goal-icon">
+            <Icon
+              library={iconRef.library}
+              name={iconRef.name}
+              size={28}
+              class="goal-icon__svg"
+            />
+          </div>
+          <p class="goal-desc">{g.description}</p>
+        </FeatureCard>
+      );
+    })
+  }
+</Section>
+
+<style>
+  .goal-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+    color: var(--color-brand-cyan);
+  }
+
+  .goal-icon__svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .goal-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    margin: 0;
+  }
+</style>

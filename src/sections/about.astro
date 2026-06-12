@@ -1,0 +1,101 @@
+---
+import Section from "../components/Section.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+
+interface CardData {
+  title: string;
+  bullets: string[];
+}
+
+const cards: CardData[] = [
+  {
+    title: "Our Simpl Values",
+    bullets: [
+      "Transparency and honesty guide every client relationship.",
+      "We champion simplicity, cutting complexity wherever it hides.",
+      "We put people before technology in every decision we make.",
+      "Continuous learning keeps us curious, humble, and sharp.",
+    ],
+  },
+  {
+    title: "Our Mission is Simpl",
+    bullets: [
+      "To build solutions that are smart, simple, and make life better.",
+      "To build tools that fit your needs, not the other way around.",
+      "To deliver measurable, lasting impact.",
+      "We apply deep expertise in process analysis, software engineering, and human-centered design to solve real problems.",
+    ],
+  },
+  {
+    title: "Simply Experienced",
+    bullets: [
+      "Over a decade of hands-on expertise in AI and software development.",
+      "Delivered successful projects across healthcare, finance, and retail.",
+      "A team who have done this before.",
+      "Trusted by startups and enterprises alike to get results.",
+    ],
+  },
+];
+---
+
+<Section
+  id="usage"
+  title="About Us"
+  subtitle="We at Simplai understand the challenges you face. And are here to face them with you."
+  subtitleColor="var(--color-alternate-dark)"
+  bg="var(--color-grey)"
+  gridCols={3}
+>
+  {
+    cards.map((card) => (
+      <FeatureCard
+        title={card.title}
+        titleBg="var(--color-primary)"
+        titleColor="var(--color-grey-light)"
+        titleAlign="center"
+        bodyAlign="left"
+        borderHoverColor="var(--color-brand-green-bright)"
+        shadowColor="var(--color-shadow-brand)"
+        bodyBg="var(--color-bg-card)"
+        footer={false}
+        ctaText="Learn More"
+      >
+        <ul class="card-bullets">
+          {card.bullets.map((bullet) => (
+            <li class="card-bullet">{bullet}</li>
+          ))}
+        </ul>
+      </FeatureCard>
+    ))
+  }
+</Section>
+
+<style>
+  .card-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .card-bullet {
+    font-size: 0.9375rem;
+    color: var(--color-text-body);
+    line-height: 1.6;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .card-bullet::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-brand-cyan);
+  }
+</style>

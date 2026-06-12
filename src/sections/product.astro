@@ -1,0 +1,72 @@
+---
+// Product.astro — "Experience the next step" black bar with platform icons
+---
+
+<div class="techbar">
+  <div class="techbar__inner">
+    <p class="techbar__text">
+      Experience the next step in safety management technology.
+    </p>
+
+    <img
+      src={`${import.meta.env.BASE_URL}simply_safe_logo_white.png`}
+      alt="Simply Safe"
+      class="techbar__logo-img"
+      aria-hidden="true"
+    />
+  </div>
+</div>
+
+<style>
+  .techbar {
+    background: var(--color-brand-dark);
+    color: var(--color-bg-white);
+  }
+
+  .techbar__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .techbar__text {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--color-bg-white);
+    margin: 0;
+    max-width: 380px;
+  }
+
+  .techbar__logo-img {
+    width: 256px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+    vertical-align: bottom;
+  }
+
+  .techbar__icons {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .techbar__icon {
+    width: 22px;
+    height: 22px;
+    color: rgba(255, 255, 255, 0.75);
+    transition: color 0.15s;
+    cursor: default;
+  }
+
+  .techbar__icons span:hover .techbar__icon {
+    color: var(--color-brand-blue);
+  }
+</style>

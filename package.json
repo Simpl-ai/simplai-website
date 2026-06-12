@@ -1,0 +1,28 @@
+{
+  "name": "simplai-website",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "deploy:cf": "astro build && wrangler pages deploy dist --project-name=simplai-website",
+    "deploy:gh": "astro build"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.3.1",
+    "@iconify-json/heroicons": "^1.2.3",
+    "@iconify-json/lucide": "^1.2.111",
+    "@iconify-json/ph": "^1.2.2",
+    "astro": "^6.3.7",
+    "astro-icon": "^1.1.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.0",
+    "@types/node": "^25.9.1",
+    "tailwindcss": "^4.3.0",
+    "wrangler": "^4.0.0"
+  }
+}

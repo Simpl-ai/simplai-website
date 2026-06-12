@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  /* Primary */
+  --color-primary: #6085be;
+  --color-primary-light: #90aad2;
+  --color-primary-dark: #4d6a98;
+
+  /* Accent (Logo green) */
+  --color-accent: #35ff4e;
+  --color-accent-light: #72ff83;
+  --color-accent-dark: #25b237;
+
+  /* Secondary */
+  --color-secondary: #41b8d5;
+  --color-secondary-light: #7acde2;
+  --color-secondary-dark: #318aa0;
+
+  /* Alternate */
+  --color-alternate: #3a5a8c;
+  --color-alternate-light: #758caf;
+  --color-alternate-dark: #283f62;
+
+  /* Grey scale */
+  --color-grey: #dcdcdc;
+  --color-grey-light: #f5f5f5;
+  --color-grey-dark: #c0c0c0;
+
+  /* Text / Neutrals */
+  --color-text-dark: #1a2332;
+  --color-text-body: #374151;
+  --color-text-muted: #6b7280;
+  --color-text-light: #ffffff;
+
+  /* Surfaces */
+  --color-bg-white: #ffffff;
+  --color-bg-card: #f5f5f5;
+  --color-border-default: #c0c0c0;
+
+  /* Shadows */
+  --color-shadow-brand: rgba(96, 133, 190, 0.2);
+
+  /* Legacy aliases (preserve existing component references) */
+  --color-brand-blue: #6085be;
+  --color-brand-blue-dark: #4d6a98;
+  --color-brand-blue-light: #90aad2;
+  --color-brand-green: #25b237;
+  --color-brand-green-bright: #35ff4e;
+  --color-brand-cyan: #41b8d5;
+  --color-brand-dark: #1a2332;
+  --color-brand-charcoal: #283f62;
+
+  /* Fonts */
+  --font-sans: "DM Sans", sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
