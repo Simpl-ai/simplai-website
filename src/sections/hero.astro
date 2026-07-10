@@ -134,53 +134,6 @@ import Icon from "../components/Icon.astro";
     margin: 0 0 0.875rem;
   }
 
-  /* "Simply Safe" tagline */
-  .hero__tagline-wrap {
-    display: flex;
-    align-items: baseline;
-    gap: 0.625rem;
-    margin: 2rem 0 2.25rem;
-  }
-
-  .hero__tagline-simply {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 700;
-    color: white;
-    letter-spacing: -0.03em;
-  }
-
-  .hero__tagline-safe {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 900;
-    color: white;
-    letter-spacing: -0.03em;
-    position: relative;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    line-height: 1;
-  }
-
-  .hero__tagline-accent {
-    display: block;
-    margin-top: 0.25rem;
-  }
-
-  .hero__tagline-icon {
-    align-self: center;
-    margin-left: 0.25rem;
-  }
-
-  /* CTA row */
-  .hero__cta-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.875rem;
-    margin-top: 0.5rem;
-  }
-
   .hero__btn {
     display: inline-flex;
     align-items: center;
@@ -203,34 +156,6 @@ import Icon from "../components/Icon.astro";
   .hero__btn--primary {
     background: var(--color-brand-dark);
     color: var(--color-bg-white);
-  }
-
-  .hero__btn--secondary {
-    background: var(--color-brand-charcoal);
-    color: var(--color-bg-white);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-  }
-
-  /* ── Right: placeholder image ── */
-  .hero__mockup {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 1rem;
-  }
-
-  .hero__image-wrap {
-    width: 100%;
-    max-width: 420px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-  }
-
-  .hero__placeholder-img {
-    width: 100%;
-    height: auto;
-    display: block;
   }
 
   /* ── Right: animated visual ── */
@@ -289,29 +214,6 @@ import Icon from "../components/Icon.astro";
     100% {
       transform: scale(1.08);
       opacity: 0;
-    }
-  }
-
-  /* Shield */
-  .hero__shield-wrap {
-    position: relative;
-    z-index: 2;
-    filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.22));
-    animation: shield-float 4s ease-in-out infinite;
-  }
-
-  .hero__shield-svg {
-    width: 88px;
-    height: 103px;
-  }
-
-  @keyframes shield-float {
-    0%,
-    100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
     }
   }
 
